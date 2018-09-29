@@ -69,8 +69,8 @@ bool equiv(int size, char *str1, char *str2)
     {
       str1b[i-size]=str1[i];
     }
-    printf("%s\n", str1a);
-    printf("%s\n", str1b);
+    //printf("%s\n", str1a);
+    //printf("%s\n", str1b);
 
     for(i=0;i<size;i++)
     {
@@ -80,8 +80,8 @@ bool equiv(int size, char *str1, char *str2)
     {
       str2b[i-size]=str2[i];
     }
-    printf("%s\n", str2a);
-    printf("%s\n", str2b);
+    //printf("%s\n", str2a);
+    //printf("%s\n", str2b);
 
     if(equiv(size,str1a,str2a)&&equiv(size,str1b,str2b))
       return true;
@@ -101,19 +101,22 @@ int main()
   bool eq;
 
   scanf("%d", &size);
+  while(size!=0)
+  {
+    str1=(char *)malloc(size * sizeof(char));
+    str2=(char *)malloc(size * sizeof(char));
 
-  str1=(char *)malloc(size * sizeof(char));
-  str2=(char *)malloc(size * sizeof(char));
+    scanf("%s", str1);
+    scanf("%s", str2);
 
-  scanf("%s", str1);
-  scanf("%s", str2);
+    eq=equiv(size,str1,str2);
 
-  eq=equiv(size,str1,str2);
+    if(eq==true)
+      printf("SIM\n");
+      else
+      printf("NAO\n");
 
-  if(eq==true)
-    printf("Equivalent\n");
-  else
-    printf("Not equivalent\n");
-
+    scanf("%d", &size);
+  }
   return 0;
 }

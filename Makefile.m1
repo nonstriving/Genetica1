@@ -1,0 +1,14 @@
+CC      = gcc
+CFLAGS  = -g
+RM      = rm -f
+
+
+default: all
+
+all: Genetica1
+
+Hello: Genetica1.c
+    $(CC) $(CFLAGS) -o Genetica1 Genetica1.c
+
+clean veryclean:
+    $(RM) Genetica1
